@@ -56,6 +56,7 @@ th {
 tr:hover {
   background-color: #ffd6e8;
 }
+ul{}
 
 
 footer {
@@ -68,49 +69,53 @@ footer {
 </style>
 <body>
 
-  <header>
-    <h2>Sapatos Disponiveis</h2>
-  </header>
+    <header>
+        <h2>Listagem de Sapatos</h2>
+      </header>
+    
+      <main>
+                <!-- Lista de sapatos -->
+        <div class="lista">
+            <ul id="id-lista">Adicione aqui os produtos de sua Escolha</ul>
 
-  <div class="lista">
-    <h2>Lista sapatos</h2>
-    <ul id="id-lista"></ul>
-  </div>
+        <!-- Formulário para adicionar sapato -->
+        <div class="adiciona">
+          <input type="text" name="texto" id="id-input" placeholder="Escolha o sapato de sua preferência">
+          <button id="id-button">Adicionar Produto</button>
+        </div>
 
-  <main>
-    <div class="adiciona">
-    <input type="text" name="texto" id="id-input" placeholder="Escolha o sapato de sua prefência">
-    <button id="id-button">Adicionar Produto</button>
-    </div>
-
-  </main>
-
-    <footer>
-
-    </footer>
-
-
-  <script>
-  let input = document.getElementById('id-input')
-  let button = document.getElementById('id-button')
-
-    button.addEventListener('click', function(){
-
-     if(input.value != ""){
-      let lista = document.getElementById('id-lista')
-      let item = document.createElement('li')
-      item.innerText = input.value
-      lista.appendChild(item)
-      input.value = ""
-     }
-
-    });
-
-
-
-
-
-  </script>
-</body>
-
-</html>
+          <!-- Botão para limpar a lista -->
+          <!--button id="clear-button">Limpar Lista-->
+        </div>
+      </main>
+    
+      <footer>
+        <p>&copy; 2025 Lista de Sapatos. Todos os direitos reservados.</p>
+      </footer>
+    
+      <script>
+        let input = document.getElementById('id-input');
+        let button = document.getElementById('id-button');
+        let clearButton = document.getElementById('clear-button');
+    
+        // Adicionar item à lista
+        button.addEventListener('click', function () {
+          if (input.value != "") {
+            let lista = document.getElementById('id-lista');
+            let item = document.createElement('li');
+            item.innerText = input.value;
+            lista.appendChild(item);
+            input.value = "";
+          }
+        });
+    
+        // Limpar lista
+        clearButton.addEventListener('click', function () {
+          let lista = document.getElementById('id-lista');
+          lista.innerHTML = ""; // Remove todos os itens da lista
+        });
+      </script>
+    
+    </body>
+    
+    </html>
