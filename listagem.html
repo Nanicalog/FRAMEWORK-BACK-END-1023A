@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>replit</title>
+  <link href="style.css" rel="stylesheet" type="text/css" />
+</head>
+<style>
+  body {
+    margin: 0;
+  font-family: 'Segoe UI', sans-serif;
+  background-color: #fff0f5;
+  color: #800040;
+}
+
+
+header {
+  background-color: #ff66b2;
+  color: white;
+  padding: 20px;
+  text-align: center;
+}
+
+
+main {
+  padding: 30px;
+  text-align: center;
+}
+
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  background-color: #ffe6f0;
+  box-shadow: 0 0 10px rgba(204, 0, 102, 0.2);
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+
+th, td {
+  padding: 15px;
+  text-align: center;
+  border-bottom: 1px solid #ffb6c1;
+}
+
+
+th {
+  background-color: #ffb6c1;
+  color: #4b004b;
+}
+
+
+tr:hover {
+  background-color: #ffd6e8;
+}
+
+
+footer {
+  background-color: #ff66b2;
+  color: white;
+  text-align: center;
+  padding: 15px;
+  margin-top: 40px;
+}
+</style>
+<body>
+
+  <header>
+    <h2>Sapatos Disponiveis</h2>
+  </header>
+
+  <div class="lista">
+    <h2>Lista sapatos</h2>
+    <ul id="id-lista"></ul>
+  </div>
+
+  <main>
+    <div class="adiciona">
+    <input type="text" name="texto" id="id-input" placeholder="Escolha o sapato de sua prefência">
+    <button id="id-button">Adicionar Produto</button>
+    </div>
+
+  </main>
+
+    <footer>
+
+    </footer>
+
+
+  <script>
+  let input = document.getElementById('id-input')
+  let button = document.getElementById('id-button')
+
+    button.addEventListener('click', function(){
+
+     if(input.value != ""){
+      let lista = document.getElementById('id-lista')
+      let item = document.createElement('li')
+      item.innerText = input.value
+      lista.appendChild(item)
+      input.value = ""
+     }
+
+    });
+
+
+
+
+
+  </script>
+</body>
+
+</html>

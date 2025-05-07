@@ -5,9 +5,10 @@ const app = fastify()
 app.register(cors)
 
 app.get('/', async (request: FastifyRequest, reply: FastifyReply) => {
+    const {id,nome} = request.body as any
     reply.send("Fastify Funcionando")
 })
-app.get('/estudantes', async (request: FastifyRequest, reply: FastifyReply) => {
+app.post('/estudantes', async (request: FastifyRequest, reply: FastifyReply) => {
     try {
         const conn =  await mysql.createConnection({
             host: "localhost",
@@ -16,9 +17,9 @@ app.get('/estudantes', async (request: FastifyRequest, reply: FastifyReply) => {
             database: 'banco1023a',
             port: 3306
         })
-        const resultado =  await conn.query("SELECT * FROM estudantes")
+        const resultado =  await conn.query("INSERT INFO estudantes (id,nome) VALUES (?,?)"),[id,nome]
         const [dados, camposTabela] = resultado
-        reply.status(200).send(dados)
+        reply.status(200).send(dados) /*/resposta é os dados/*/
     }
     catch (erro: any) {
         if (erro.code === 'ECONNREFUSED') {
